@@ -8,12 +8,25 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
+const SocketHander = require('./socket/index');
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 io.on('connection', (socket) => {
+ 
+
   console.log('a user connected');
+  
+  socketHander = new SocketHander();  
+
+  socketHander.connect();
+
+  io.emit("message", 'Hello wWrld!');
+
+  socket.on("message", (obj) => {
+  socketHander.storeMessages(obj);
+  io.emit("message", obj);
+  });
 
   socket.on("disconnect", () => {
     console.log("a user go out");
