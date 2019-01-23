@@ -1,12 +1,17 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
-  <script src="./javascripts/app.js"></script>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
- <body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/locale/zh-tw.js'></script>
+</head>
+
+<body>
   <div class="chats">
     <div class="chat">
       <div class="group">
@@ -28,5 +33,8 @@
     <input id="msg" type="text" placeholder="input the message" />
     <button type="button">送出</button>
   </div>
-</body> 
+</body>
+<script src="./javascripts/app.js"></script>
+
 </html>
+
